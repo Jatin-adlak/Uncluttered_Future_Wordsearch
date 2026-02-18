@@ -1,0 +1,268 @@
+@font-face {
+  font-family: "Epoch";
+  src: url("fonts/Epoch-BF6881cf42e6637.otf");
+}
+
+/* =========================
+   RESET
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Epoch", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: url("new wsbg.png") center / cover no-repeat;
+  color: white;
+  overflow: hidden;
+}
+
+/* =========================
+   DESKTOP / SMART BOARD
+   (DEFAULT – RESTORED)
+   ========================= */
+
+#layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 280px;
+  height: 100vh;
+}
+
+/* LEFT – PROGRESS */
+#progress {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 40px;
+}
+
+#progress .title {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+#progress .stats {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* =========================
+   BUTTON GROUP (DESKTOP)
+   ========================= */
+
+.button-group {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.button-group button {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+
+  transition: all 0.2s ease;
+}
+
+.button-group button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.button-group button:active {
+  transform: translateY(0);
+}
+
+/* CENTER – GAME */
+#gameArea {
+  position: relative;
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+}
+
+/* =========================
+   RIGHT – FOUND WORDS
+   (DENSE DESKTOP / SMART BOARD)
+   ========================= */
+
+#foundWordsSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 24px 28px 24px 0;
+}
+
+#foundWordsSection .title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+/* DENSE STRIP GRID */
+#foundWordsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 6px 8px;
+  align-items: start;
+}
+
+/* WORD STRIP */
+.found-word {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 150, 0, 0.55);
+  font-size: 13px;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* =========================
+   MOBILE / PORTRAIT
+   ========================= */
+@media (max-width: 900px), (orientation: portrait) {
+
+  body {
+    overflow-y: auto;
+  }
+
+  #layout {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  #progress {
+    padding: 20px 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  #gameArea {
+    height: 80vh;
+  }
+
+  #foundWordsSection {
+    padding: 20px;
+    align-items: center;
+  }
+
+  #foundWordsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  /* Buttons mobile */
+  .button-group {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .button-group button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* =========================================
+   SMART BOARD – 75 INCH (3840 × 2160)
+   ========================================= */
+@media (min-width: 2500px) {
+
+  #layout {
+    grid-template-columns: 420px 1fr 520px;
+    height: 100vh;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  /* LEFT – PROGRESS */
+  #progress {
+    padding-left: 80px;
+    justify-content: center;
+  }
+
+  #progress .title {
+    font-size: 88px;
+    margin-bottom: 32px;
+  }
+
+  #progress .stats {
+    font-size: 42px;
+    line-height: 1.9;
+  }
+
+  /* SMART BOARD BUTTONS */
+  .button-group {
+    gap: 24px;
+  }
+
+  .button-group button {
+    font-size: 30px;
+    padding: 18px 28px;
+    border-radius: 10px;
+  }
+
+  /* RIGHT – FOUND WORDS */
+  #foundWordsSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 60px 60px 0;
+    height: 100%;
+  }
+
+  #foundWordsSection .title {
+    width: 100%;
+    text-align: center;
+    font-size: 54px;
+    margin-bottom: 40px;
+    flex-shrink: 0;
+  }
+
+  #foundWordsGrid {
+    width: 100%;
+    max-height: calc(100vh - 260px);
+    column-width: 460px;
+    column-gap: 72px;
+    overflow: hidden;
+  }
+
+  .found-word {
+    display: block;
+    break-inside: avoid;
+    font-size: 48px;
+    line-height: 1.25;
+    margin-bottom: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    background: none;
+    padding: 0;
+    position: relative;
+  }
+
+  .found-word::before {
+    content: "•";
+    margin-right: 16px;
+    color: #6aff6a;
+  }
+}

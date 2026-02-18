@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Word Search</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="layout">
+
+  <!-- LEFT PANEL -->
+  <div id="progress">
+
+    <div class="title">PROGRESS</div>
+
+    <div class="stats">
+      <div>Total Words: <span id="totalCount">0</span></div>
+      <div>Found: <span id="foundCount">0</span></div>
+    </div>
+
+    <div class="button-group">
+      <button id="refreshBtn">Refresh</button>
+      <button id="optionBtn">Option 2</button>
+    </div>
+
+  </div>
+
+  <!-- CENTER GAME AREA -->
+  <div id="gameArea">
+    <canvas id="game"></canvas>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div id="foundWordsSection">
+
+    <div class="title">FOUND WORDS</div>
+
+    <div id="foundWordsGrid">
+      <!-- Words injected dynamically -->
+    </div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
