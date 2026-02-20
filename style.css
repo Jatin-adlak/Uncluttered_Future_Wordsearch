@@ -15,8 +15,8 @@
 
 body {
   min-height: 100vh;
-  background: url("new wsbg.png") center / cover no-repeat;
-  color: white;
+  background: url("new wsbg.jpeg") center / cover no-repeat;
+  color: black;
   overflow: hidden;
 }
 
@@ -67,14 +67,14 @@ body {
   border: none;
   cursor: pointer;
 
-  background: rgba(255, 255, 255, 0.15);
+  background: rgb(48, 45, 45);
   color: white;
 
   transition: all 0.2s ease;
 }
 
 .button-group button:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: rgb(7, 7, 7);
   transform: translateY(-2px);
 }
 
@@ -266,3 +266,4 @@ canvas {
     color: #6aff6a;
   }
 }
+
